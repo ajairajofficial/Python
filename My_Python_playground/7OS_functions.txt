@@ -1,0 +1,88 @@
+
+
+# Powerful OS functions:
+
+#These OS functions are essential for:
+
+#File management systems
+#Backup scripts
+#Data processing pipelines
+#System maintenance tools
+#Configuration management
+#Log file handling
+#Project organization
+
+#The OS module is your Swiss Army knife for file system operations in Python!
+import os
+
+# 1. Working with Directories
+current_dir = os.getcwd()  # Get current working directory
+
+#os.chdir(r'C:\Users\ajair\Desktop')   # Change directory
+#os.mkdir('new_folder')     # Create single directory
+#os.makedirs(r'folder1\folder2\folder3')  # Create nested directories
+#os.rmdir('folder_name')    # Remove empty directory
+#os.removedirs(r'folder1\folder2')  # Remove nested empty directories
+
+# 2. File Operations
+#os.rename('old_name.txt', 'new_name.txt')  # Rename file
+# os.remove('file.txt')      # Delete file (commented to prevent accidental deletion)
+#file_size = os.path.getsize('example.txt')  # Get file size in bytes
+#file_exists = os.path.exists('example.txt')  # Check if file exists
+
+# 3. Path Operations
+#base = os.path.basename(r'C:\folder\file.txt')  # Returns 'file.txt'
+#directory = os.path.dirname(r'C:\folder\file.txt')  # Returns 'C:\folder'
+#path = os.path.abspath('example.txt')  # Get absolute path
+#is_absolute = os.path.isabs(r'C:\folder\file.txt')  # Check if path is absolute
+
+# 4. File Information
+#stats = os.stat('example.txt')  # Get file statistics
+#modification_time = os.path.getmtime('example.txt')  # Get modification time
+#access_time = os.path.getatime('example.txt')  # Get last access time
+#creation_time = os.path.getctime('example.txt')  # Get creation time
+
+
+
+# 6. Environment Variables
+#home_dir = os.environ.get('USERPROFILE')  # Windows equivalent of HOME
+#os.environ['MY_VAR'] = 'value'     # Set environment variable
+
+# 7. Path Joining and Splitting
+#full_path = os.path.join('folder', 'subfolder', 'file.txt')
+#drive, path = os.path.splitdrive(r'C:\folder\file.txt')
+#path, extension = os.path.splitext('file.txt')
+
+# Example 1: Create a backup directory and copy files
+#def create_backup():
+#    backup_dir = os.path.join(os.getcwd(), 'backup')
+#    if not os.path.exists(backup_dir):
+#        os.mkdir(backup_dir)
+#    return backup_dir
+
+# Example 2: Get all image files from a directory
+#def get_image_files(directory):
+#    image_extensions = ('.jpg', '.png', '.gif')
+#    image_files = []
+#    for file in os.listdir(directory):
+#        if file.lower().endswith(image_extensions):
+#            image_files.append(os.path.join(directory, file))
+#    return image_files
+
+# Example 3: Clean up old files
+#def remove_old_files(directory, days_old):
+#    import time
+#    current_time = time.time()
+#    for file in os.listdir(directory):
+#        file_path = os.path.join(directory, file)
+#        if os.path.isfile(file_path):
+#            if current_time - os.path.getmtime(file_path) > (days_old * 86400):
+#                os.remove(file_path)
+
+# Test the functions
+#if __name__ == "__main__":
+#    print("Current Directory:", current_dir)
+#    backup_path = create_backup()
+#    print("Backup Directory Created:", backup_path)
+#    images = get_image_files(current_dir)
+#    print("Image Files Found:", len(images))
